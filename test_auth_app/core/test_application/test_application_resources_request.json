@@ -1,0 +1,32 @@
+{
+    "cpu": {
+        "required": {
+            "units": "unit",
+            "value": 1
+        }
+    },
+    "gpu": {
+        "required": {
+            "units": "unit",
+            "value": 1
+        }
+    },
+    "ram": {
+        "required": {
+            "units": "MB",
+            "value": 1024
+        }
+    },
+    "vram": {
+        "required": {
+            "units": "MB",
+            "value": 2048
+        }
+    },
+    "storage": {
+        "required": {
+            "units": "MB",
+            "value": 64
+        }
+    }
+}

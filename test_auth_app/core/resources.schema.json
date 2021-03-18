@@ -1,0 +1,119 @@
+{
+    "title": "Resources Schema",
+    "type": "object",
+    "required": [
+        "cpu", "gpu", "ram", "vram", "storage"
+    ],
+    "properties": {
+        "cpu": {
+            "type": "object",
+            "required": ["total", "available"],
+            "properties": {
+                "total": {
+                    "type": "object",
+                    "required": ["units", "value"],
+                    "properties": {
+                        "units": {"type": "string"},
+                        "value": {"type": "integer", "minimum": 0}
+                    }
+                },
+                "available": {
+                    "type": "object",
+                    "required": ["units", "value"],
+                    "properties": {
+                        "units": {"type": "string"},
+                        "value": {"type": "integer", "minimum": 0}
+                    }
+                }
+            }
+        },
+        "gpu": {
+            "type": "object",
+            "required": ["total", "available"],
+            "properties": {
+                "total": {
+                    "type": "object",
+                    "required": ["units", "value"],
+                    "properties": {
+                        "units": {"type": "string"},
+                        "value": {"type": "integer", "minimum": 0}
+                    }
+                },
+                "available": {
+                    "type": "object",
+                    "required": ["units", "value"],
+                    "properties": {
+                        "units": {"type": "string"},
+                        "value": {"type": "integer", "minimum": 0}
+                    }
+                }
+            }
+        },
+        "ram": {
+            "type": "object",
+            "required": ["total", "available"],
+            "properties": {
+                "total": {
+                    "type": "object",
+                    "required": ["units", "value"],
+                    "properties": {
+                        "units": {"type": "string"},
+                        "value": {"type": "integer", "minimum": 0}
+                    }
+                },
+                "available": {
+                    "type": "object",
+                    "required": ["units", "value"],
+                    "properties": {
+                        "units": {"type": "string"},
+                        "value": {"type": "integer", "minimum": 0}
+                    }
+                }
+            }
+        },
+        "vram": {
+            "type": "object",
+            "required": ["total", "available"],
+            "properties": {
+                "total": {
+                    "type": "object",
+                    "required": ["units", "value"],
+                    "properties": {
+                        "units": {"type": "string"},
+                        "value": {"type": "integer", "minimum": 0}
+                    }
+                },
+                "available": {
+                    "type": "object",
+                    "required": ["units", "value"],
+                    "properties": {
+                        "units": {"type": "string"},
+                        "value": {"type": "integer", "minimum": 0}
+                    }
+                }
+            }
+        },
+        "storage": {
+            "type": "object",
+            "required": ["total", "available"],
+            "properties": {
+                "total": {
+                    "type": "object",
+                    "required": ["units", "value"],
+                    "properties": {
+                        "units": {"type": "string"},
+                        "value": {"type": "integer", "minimum": 0}
+                    }
+                },
+                "available": {
+                    "type": "object",
+                    "required": ["units", "value"],
+                    "properties": {
+                        "units": {"type": "string"},
+                        "value": {"type": "integer", "minimum": 0}
+                    }
+                }
+            }
+        }
+    }
+}

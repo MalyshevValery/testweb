@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>LungWeb applications</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/frontend/assets/css/angular-material.css"/>
+    <link rel="stylesheet" href="/frontend/assets/css/app.css"/>
+
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<!--<body ng-app="mainApp" ng-controller="mainCtrl" layout="column">-->
+<body ng-app="mainApp" layout="column">
+<md-toolbar layout="row">
+    <h3>Online services for CT/CXR image processing and analysis (Demo)</h3>
+</md-toolbar>
+
+<md-tabs id="main-tab" md-selected="selectedIndex" md-border-bottom  md-dynamic-height>
+    <md-tab class="unselectable">
+        <md-tab-label>
+            <md-icon md-font-library="material-icons" aria-label="cases">apps</md-icon>
+            Cases
+        </md-tab-label>
+        <md-tab-body>
+            <dataentry-info></dataentry-info>
+        </md-tab-body>
+    </md-tab>
+    <md-tab class="unselectable" layout-fill>
+        <md-tab-label>
+            <md-icon md-font-library="material-icons" aria-label="status">settings</md-icon>
+            Status
+        </md-tab-label>
+        <md-tab-body>
+            <db-status></db-status>
+        </md-tab-body>
+    </md-tab>
+</md-tabs>
+
+<script src="/frontend/lib/angular.js"></script>
+<script src="/frontend/lib/angular-animate.js"></script>
+<script src="/frontend/lib/angular-aria.js"></script>
+<script src="/frontend/lib/angular-messages.js"></script>
+<script src="/frontend/lib/angular-material.js"></script>
+
+<script src="/frontend/app.js"></script>
+
+<script src="/frontend/components/dataentry-info/dataentry-info.js"></script>
+<script src="/frontend/components/db-status/db-status.js"></script>
+
+
+</body>
+</html>

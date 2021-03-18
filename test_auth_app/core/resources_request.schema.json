@@ -1,0 +1,79 @@
+{
+    "title": "Resources Request Schema",
+    "type": "object",
+    "required": [
+        "cpu", "gpu", "ram", "vram", "storage"
+    ],
+    "properties": {
+        "cpu": {
+            "type": "object",
+            "required": ["required"],
+            "properties": {
+                "required": {
+                    "type": "object",
+                    "required": ["units", "value"],
+                    "properties": {
+                        "units": {"type": "string"},
+                        "value": {"type": "integer", "minimum": 0}
+                    }
+                }
+            }
+        },
+        "gpu": {
+            "type": "object",
+            "required": ["required"],
+            "properties": {
+                "required": {
+                    "type": "object",
+                    "required": ["units", "value"],
+                    "properties": {
+                        "units": {"type": "string"},
+                        "value": {"type": "integer", "minimum": 0}
+                    }
+                }
+            }
+        },
+        "ram": {
+            "type": "object",
+            "required": ["required"],
+            "properties": {
+                "required": {
+                    "type": "object",
+                    "required": ["units", "value"],
+                    "properties": {
+                        "units": {"type": "string"},
+                        "value": {"type": "integer", "minimum": 0}
+                    }
+                }
+            }
+        },
+        "vram": {
+            "type": "object",
+            "required": ["required"],
+            "properties": {
+                "required": {
+                    "type": "object",
+                    "required": ["units", "value"],
+                    "properties": {
+                        "units": {"type": "string"},
+                        "value": {"type": "integer", "minimum": 0}
+                    }
+                }
+            }
+        },
+        "storage": {
+            "type": "object",
+            "required": ["required"],
+            "properties": {
+                "required": {
+                    "type": "object",
+                    "required": ["units", "value"],
+                    "properties": {
+                        "units": {"type": "string"},
+                        "value": {"type": "integer", "minimum": 0}
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" type="text/css" href="/frontend/static/cssjs4/papaya.css" />
+    <script type="text/javascript" src="/frontend/static/cssjs4/papaya.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.min.css">
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+    <script src="/frontend/static/cssjs/jquery.mousewheel.min.js" type="text/javascript"></script>
+
+
+    <script type="text/javascript" src="/frontend/static/cssjs/bootstrap.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="/frontend/static/cssjs/ekko-lightbox.min.css" type="text/css">
+    <script src="/frontend/static/cssjs/ekko-lightbox.min.js" type="text/javascript"></script>
+
+    <script src="/frontend/static/vrc/gl-matrix-min.js"></script>
+    <script src="/frontend/static/vrc/webgl-util.js"></script>
+    <script src="/frontend/static/vrc/shader-srcs.js"></script>
+    <script src="/frontend/static/vrc/FileSaver.js"></script>
+    <script src="/frontend/static/vrc/volume-raycaster-lungweb.js"></script>
+    <script src="/frontend/static/vrc/nifti-reader.js"></script>
+
+
+    <title>Test Service</title>
+</head>
+<body>
+<style rel="stylesheet" type="text/css">
+    html, body {
+        height: 100%;
+        width: 100%;
+        background-color: #F5F8F9;
+    }
+    .img-user {
+        cursor: pointer;
+    }
+    .img-user:hover {
+        background-color: darkred;
+    }
+    .img_list {
+        overflow: scroll;
+    }
+    .fill-heigth {
+        min-height: 100%;
+        height: 100%;
+    }
+    .container_0 {
+        border: 1px solid #777;
+    }
+    .border_l {
+        border-left: 1px solid #777;
+    }
+    .border_r {
+        border-right: 1px solid #777;
+    }
+    .navbar {
+        margin-bottom: 8px;
+    }
+    .content {
+        background-color: #eee;
+        padding: 8px;
+        margin: 0 4px; /* negative indent the amount of the padding to maintain the grid system */
+        -webkit-border-radius: 6px 6px 6px 6px;
+           -moz-border-radius: 6px 6px 6px 6px;
+                border-radius: 6px 6px 6px 6px;
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+                box-shadow: 0 1px 2px rgba(0,0,0,.15);
+      }
+
+    .jumbotron-custom {
+        padding: 8px;
+    }
+
+    .cryptedmail:after {
+      content: attr(data-name) "@" attr(data-domain) "." attr(data-tld)
+    }
+</style>
+
+<div class="navbar navbar-expand-lg navbar-light" style="background-color: #deeeff;" role="navigation">
+    <li class="collapse navbar-collapse justify-content-between align-items-center w-100">
+        <ul class="nav navbar-nav pull-left">
+            <li class="nav-item">
+                <a class="navbar-brand " href="/"><span class="glyphicon glyphicon-home"></span> Home  </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="navbar-brand dropdown-toggle" data-toggle="dropdown" href="" aria-haspopup="true" aria-expanded="false">
+                    <span class="glyphicon glyphicon-tasks"></span> Applications <span class="caret"></span>
+                </a>
+                <ul role="menu" class="dropdown-menu">
+                    <li id="navbar-individual-seg"> <a href="/app/testapp/" >Test Application</a></li>
+                </ul>
+            </li>
+
+        </ul>
+
+        {% if current_user.is_authenticated %}
+        <ul class="nav navbar-nav pull-right">
+            <li class="nav-item dropdown">
+                <a class="navbar-brand dropdown-toggle" data-toggle="dropdown" href="" aria-haspopup="true" aria-expanded="false">
+                    {{ current_user }} <span class="caret"></span>
+                </a>
+
+                <ul role="menu" class="dropdown-menu">
+                    <li class="btn nav-item" id="btn-logout">
+                        <span class="glyphicon glyphicon-log-out"></span> Logout
+                    </li>
+                </ul>
+
+            </li>
+        </ul>
+
+        {% else %}
+        <ul class="nav navbar-nav pull-right">
+            <li class="nav-item dropdown">
+                <a class="navbar-brand dropdown-toggle" data-toggle="dropdown" href="" aria-haspopup="true" aria-expanded="false">
+                    not logged in <span class="caret"></span>
+                </a>
+                <ul role="menu" class="dropdown-menu">
+                    <li class="btn nav-item" id="btn-login">
+                        <span class="glyphicon glyphicon-log-in"></span> Log In
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        {% endif %}
+
+    </div>
+</div>
+
+{% block content %}{% endblock %}
+
+<!-- Footer -->
+<footer class="page-footer font-small blue">
+    <div class=" col-lg-offset-4 col-sm-6">
+        <div class="row">
+            <div class="col-sm-5">
+              <a href="#" class="cryptedmail"
+              data-name="eduard.snezhko"
+              data-domain="gmail"
+              data-tld="com"
+              onclick="window.location.href = 'mailto: ' + this.dataset.name + '@' + this.dataset.domain + '.' + this.dataset.tld"></a>
+          </div>
+
+        </div>
+        </div>
+  <!-- Copyright -->
+</footer>
+
+<script type="application/javascript">
+    $('#btn-login').on("click", function() {
+        window.location='/login/';
+    });
+    $('#btn-logout').on("click", function() {
+        window.location='/logout/';
+    });
+</script>
+
+</body>
+</html>

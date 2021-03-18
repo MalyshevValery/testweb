@@ -1,0 +1,17 @@
+{
+     "case_id": "case_id",
+     "app_label": "app_label",
+     "input_preview_url": "input_preview_url",
+     "proc_preview_url": "proc_preview_url",
+     "zip_result_url": "zip_result_url",
+     "input_url": "input_url",
+     "proc_url": "proc_url",
+     "proc_rgb_url": "proc_rgb_url",
+     "proc_raycast_url": "proc_raycast_url",
+     "w": 200,
+     "h": 200,
+     "is_finished": "is_finished",
+     "is_submitted": "is_submitted",
+     "is_error": "is_error",
+     "error_text": "error_text"
+}

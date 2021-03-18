@@ -1,0 +1,1 @@
+python ./test_auth_app.py

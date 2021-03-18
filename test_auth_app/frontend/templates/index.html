@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+    <script type="text/javascript">
+        function src_on_hover(el, src) {
+            el.setAttribute('src', src);
+        }
+    </script>
+    <style type="text/css">
+        .algnc {
+            text-align: center;
+        }
+    </style>
+    <div class="container" xmlns="http://www.w3.org/1999/html">
+        <header class="algnc">
+            <div class="panel panel-default panel-heading">
+                    <h3>Apps Image Analysis</h3>
+            </div>
+        </header>
+
+        <div class="row text-center">
+            <div class="col-md-4 col-sm-6 hero-feature">
+                <div class="thumbnail">
+                    <a href="/app/testapp/"><img  src="/frontend/static/img/app_test0.png" style="height:180px" alt="" class="img-thumbnail"
+                         onmouseover="src_on_hover(this,'/frontend/static/img/app_test1.png');"
+                         onmouseout ="src_on_hover(this,'/frontend/static/img/app_test0.png');"></a>
+                        <p>
+                            <a href="/app/testapp/" class="btn btn-primary">Test Application</a>
+                        </p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
