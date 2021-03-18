@@ -143,30 +143,7 @@ class TestApplicationWorker(AnalysisWorker):
             # TODO: try do reorientation
             pass
 
-        # TODO: add image volume checks - shape, is it lower limbs, etc.
-
-        # volume shape correction
-        img_nib = nib.load(self.input_filename)
-        img_vol = img_nib.get_data()
-        img_shape = img_vol.shape
-        img_affine = img_nib.affine
-        print('img_vol.shape = {}'.format(img_shape))
-        if img_shape[0] != 448 or img_shape[1] != 224:
-            new_vol = np.zeros((448, 224, img_shape[2]), np.dtype(img_vol[0, 0, 0]))
-            new_min_x = np.max([0, (new_vol.shape[0] - img_shape[0]) // 2])
-            new_max_x = new_min_x + np.min([img_shape[0], new_vol.shape[0]])
-            new_min_y = np.max([0, (new_vol.shape[1] - img_shape[1]) // 2])
-            new_max_y = new_min_y + np.min([img_shape[1], new_vol.shape[1]])
-
-            dst_min_x = np.max([0, (img_shape[0] - new_vol.shape[0]) // 2])
-            dst_max_x = dst_min_x + np.min([img_shape[0], new_vol.shape[0]])
-            dst_min_y = np.max([0, (img_shape[1] - new_vol.shape[1]) // 2])
-            dst_max_y = dst_min_y + np.min([img_shape[1], new_vol.shape[1]])
-
-            new_vol[new_min_x:new_max_x, new_min_y:new_max_y, :] = img_vol[dst_min_x:dst_max_x, dst_min_y:dst_max_y, :]
-            print('new_shape = {}'.format(new_vol.shape))
-            new_nib = nib.Nifti1Image(new_vol, img_affine)
-            nib.save(new_nib, self.input_filename)
+        
 
         return True
 
