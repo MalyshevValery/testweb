@@ -143,7 +143,7 @@ class TestApplicationWorker(AnalysisWorker):
             # TODO: try do reorientation
             pass
 
-        
+
 
         return True
 
