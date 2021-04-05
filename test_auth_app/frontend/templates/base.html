@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
+    <base href="http://localhost/service/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" type="text/css" href="/frontend/static/cssjs4/papaya.css" />
-    <script type="text/javascript" src="/frontend/static/cssjs4/papaya.js"></script>
+    <link rel="stylesheet" type="text/css" href="frontend/static/cssjs4/papaya.css" />
+    <script type="text/javascript" src="frontend/static/cssjs4/papaya.js"></script>
 
     <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
     <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
@@ -13,22 +14,22 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.min.css">
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="//code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
-    <script src="/frontend/static/cssjs/jquery.mousewheel.min.js" type="text/javascript"></script>
+    <script src="frontend/static/cssjs/jquery.mousewheel.min.js" type="text/javascript"></script>
 
 
-    <script type="text/javascript" src="/frontend/static/cssjs/bootstrap.min.js"></script>
+    <script type="text/javascript" src="frontend/static/cssjs/bootstrap.min.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
-    <link href="/frontend/static/cssjs/ekko-lightbox.min.css" type="text/css">
-    <script src="/frontend/static/cssjs/ekko-lightbox.min.js" type="text/javascript"></script>
+    <link href="frontend/static/cssjs/ekko-lightbox.min.css" type="text/css">
+    <script src="frontend/static/cssjs/ekko-lightbox.min.js" type="text/javascript"></script>
 
-    <script src="/frontend/static/vrc/gl-matrix-min.js"></script>
-    <script src="/frontend/static/vrc/webgl-util.js"></script>
-    <script src="/frontend/static/vrc/shader-srcs.js"></script>
-    <script src="/frontend/static/vrc/FileSaver.js"></script>
-    <script src="/frontend/static/vrc/volume-raycaster-lungweb.js"></script>
-    <script src="/frontend/static/vrc/nifti-reader.js"></script>
+    <script src="frontend/static/vrc/gl-matrix-min.js"></script>
+    <script src="frontend/static/vrc/webgl-util.js"></script>
+    <script src="frontend/static/vrc/shader-srcs.js"></script>
+    <script src="frontend/static/vrc/FileSaver.js"></script>
+    <script src="frontend/static/vrc/volume-raycaster-lungweb.js"></script>
+    <script src="frontend/static/vrc/nifti-reader.js"></script>
 
 
     <title>Test Service</title>
@@ -97,7 +98,7 @@
                     <span class="glyphicon glyphicon-tasks"></span> Applications <span class="caret"></span>
                 </a>
                 <ul role="menu" class="dropdown-menu">
-                    <li id="navbar-individual-seg"> <a href="/app/testapp/" >Test Application</a></li>
+                    <li id="navbar-individual-seg"> <a href="app/testapp/" >Test Application</a></li>
                 </ul>
             </li>
 
@@ -155,13 +156,13 @@
         </div>
   <!-- Copyright -->
 </footer>
-
+{#TODO: Insert here links to login in#}
 <script type="application/javascript">
     $('#btn-login').on("click", function() {
-        window.location='/login/';
+        window.location='login/';
     });
     $('#btn-logout').on("click", function() {
-        window.location='/logout/';
+        window.location='logout/';
     });
 </script>
 

@@ -272,11 +272,11 @@ a:hover>div { transform: scale(3.0) translate(50%, 10%); z-index: 10;}
 
 
 <!-- The basic File Upload plugin -->
-<link href="/frontend/static/cssjs/jquery.fileupload.css" rel="stylesheet">
-<script src="/frontend/static/cssjs/jquery.fileupload.js"></script>
+<link href="frontend/static/cssjs/jquery.fileupload.css" rel="stylesheet">
+<script src="frontend/static/cssjs/jquery.fileupload.js"></script>
 
-<script src="/frontend/static/cssjs/dicomParser.min.js"></script>
-<script src="/frontend/static/cssjs/dicomClearPII.js"></script>
+<script src="frontend/static/cssjs/dicomParser.min.js"></script>
+<script src="frontend/static/cssjs/dicomClearPII.js"></script>
 
 
 <script type="application/javascript">
@@ -425,7 +425,7 @@ a:hover>div { transform: scale(3.0) translate(50%, 10%); z-index: 10;}
         ///////////////////////////////////////
         function imageListUpdater() {
             $.ajax({
-                url: "/app/testapp/cases_list/",
+                url: "app/testapp/cases_list/",
                 success: function(data) {
                     currentImageInfo = $.parseJSON(data);
                     var showUpdateStatus = false;

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Lungs Web Apps - api</title>
-    <link rel="stylesheet" type="text/css" href="/frontend/static/api/swagger-ui.css" >
-    <link rel="icon" type="image/png" href="/frontend/static/api/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="/frontend/static/api/favicon-16x16.png" sizes="16x16" />
+    <link rel="stylesheet" type="text/css" href="frontend/static/api/swagger-ui.css" >
+    <link rel="icon" type="image/png" href="frontend/static/api/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="frontend/static/api/favicon-16x16.png" sizes="16x16" />
     <style>
       html
       {
@@ -31,8 +31,8 @@
 <body>
 <!--<script src="https://unpkg.org/swagger-ui-dist@3/swagger-ui-bundle.js" charset="UTF-8"></script>-->
 <!-- `SwaggerUIBundle is now available on the page` -->
-    <script src="/frontend/static/api/swagger-ui-bundle.js" charset="UTF-8"> </script>
-    <script src="/frontend/static/api/swagger-ui-standalone-preset.js" charset="UTF-8"> </script>
+    <script src="frontend/static/api/swagger-ui-bundle.js" charset="UTF-8"> </script>
+    <script src="frontend/static/api/swagger-ui-standalone-preset.js" charset="UTF-8"> </script>
 
     <div id="swagger-ui"></div>
 
@@ -40,7 +40,7 @@
     window.onload = function() {
       // Begin Swagger UI call region
       const ui = SwaggerUIBundle({
-        url: "/frontend/static/api/lungweb.json",
+        url: "frontend/static/api/lungweb.json",
         dom_id: '#swagger-ui',
         deepLinking: true,
         presets: [

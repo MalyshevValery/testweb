@@ -385,6 +385,7 @@ def api_page():
 # login
 @test_auth_app_flask.route('/login/', methods=['GET', 'POST'])
 def page_login():
+    #TODO LOGIN
     if current_user.is_authenticated and current_user.is_validated() and not current_user.email == 'empty@email.org':
         return redirect('/')
     form = LoginForm()
