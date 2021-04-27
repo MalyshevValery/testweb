@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-    <base href="http://localhost/service/">
+    <base href="http://127.0.0.1/service/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -103,12 +103,11 @@
             </li>
 
         </ul>
-
-        {% if current_user.is_authenticated %}
+        {% if current_user is not none and current_user is iterable %}
         <ul class="nav navbar-nav pull-right">
             <li class="nav-item dropdown">
                 <a class="navbar-brand dropdown-toggle" data-toggle="dropdown" href="" aria-haspopup="true" aria-expanded="false">
-                    {{ current_user }} <span class="caret"></span>
+                    {{ current_user['identity']['traits']['email'] }} <span class="caret"></span>
                 </a>
 
                 <ul role="menu" class="dropdown-menu">
@@ -159,10 +158,10 @@
 {#TODO: Insert here links to login in#}
 <script type="application/javascript">
     $('#btn-login').on("click", function() {
-        window.location='login/';
+        window.location='http://127.0.0.1/kratos/self-service/login/browser?return_to=' + window.location.href;
     });
     $('#btn-logout').on("click", function() {
-        window.location='logout/';
+        window.location='http://127.0.0.1/kratos/self-service/browser/flows/logout?return_to=' + window.location.href;
     });
 </script>
 

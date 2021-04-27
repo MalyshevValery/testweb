@@ -26,6 +26,21 @@ import pydicom
 import nibabel as nib
 import numpy as np
 import tempfile
+import requests
+
+
+def info(request):
+    """Returns kratos identity of user, None if not logged in"""
+    cookie = request.cookies.get('ory_kratos_session', None)
+    if cookie is None:
+        return None
+    headers = {
+        'Accept': 'application/json',
+    }
+    r = requests.get(
+        f'http://127.0.0.1/kratos/sessions/whoami',
+        cookies=request.cookies, headers=headers)
+    return r.json()
 
 
 ##########################################
@@ -385,7 +400,7 @@ def api_page():
 # login
 @test_auth_app_flask.route('/login/', methods=['GET', 'POST'])
 def page_login():
-    #TODO LOGIN
+    # TODO LOGIN
     if current_user.is_authenticated and current_user.is_validated() and not current_user.email == 'empty@email.org':
         return redirect('/')
     form = LoginForm()
@@ -482,18 +497,17 @@ def app_page(app_label):
 
     cases_list = []
     number_of_pages = 0
+    current_user = info(request)
+    print(current_user)
     if current_user is not None:
-        print('current_user is not None')
-        if current_user.is_authenticated:
-            print('current_user is authenticated')
-            cases_list = get_cases_list(session_id='dummy_session_id', app_label=app_label, user_uid=current_user.user_uid)
-            number_of_pages = get_number_of_pages(session_id='dummy_session_id', app_label=app_label, user_uid=current_user.user_uid)
-        else:
-            print('current_user is not authenticated')
+        print(current_user)
+        print('current_user is not None and is authenticated')
+        # Chnged sessions id to user id
+        cases_list = get_cases_list(session_id=current_user['id'], app_label=app_label, user_uid=current_user['identity']['id'])
+        number_of_pages = get_number_of_pages(session_id=current_user['id'], app_label=app_label, user_uid=current_user['identity']['id'])
     else:
         print('current_user is None')
-
-    return render_template('app_{}.html'.format(app_label), uploadedImages=cases_list, numberOfPages=number_of_pages, currentPageID=1)
+    return render_template('app_{}.html'.format(app_label), uploadedImages=cases_list, numberOfPages=number_of_pages, currentPageID=1, current_user=current_user)
 
 
 @test_auth_app_flask.route('/app/<app_label>/<page_id>', methods=['GET'])
